@@ -25,8 +25,8 @@ class Led:
             GPIO.output(24, GPIO.HIGH)
             GPIO.output(18, GPIO.HIGH)
             time.sleep(1)
-            GPIO.output(14, GPIO.LOW)
-            GPIO.output(15, GPIO.LOW)
+            GPIO.output(24, GPIO.LOW)
+            GPIO.output(18, GPIO.LOW)
             time.sleep(1)
             i=i+1
 
