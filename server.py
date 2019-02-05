@@ -28,12 +28,17 @@ def message_loop():
         Celsius = degcel.degreeCelsius()
         if Celsius < 15:
             GPIO.output(24, GPIO.HIGH)
-            message = ("la temperature est de : " + str(Celsius) + "declenchement des radiateurs")
+            message = ("la temperature est de : " + str(Celsius) + ", declenchement des radiateurs")
             socketio.emit('alert', message, Broadcast=True)
         elif Celsius > 30:
             GPIO.output(18, GPIO.HIGH)
-            message2 = ("la temperature est de : " + str(Celsius) + "declenchement de la climatisation")
+            message2 = ("la temperature est de : " + str(Celsius) + ", declenchement de la climatisation")
             socketio.emit('alert', message2, Broadcast=True)
+
+        elif Celsius > 40:
+            GPIO.output(22, GPIO.HIGH)
+            message4 = ("la temperature est de : " +str(Celsius) + ", Alerte, il fait beaucoup trop chaud")
+            socketio.emit('alert', message4, Broadcast=True)
 
         else:
             GPIO.output(18, GPIO.LOW)
