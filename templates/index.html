@@ -47,7 +47,23 @@
             margin-top: 15px;
         }
     </style>
-    <script>
+
+</head>
+<body>
+<div id="content"></div>
+
+<div class="gauge">
+    <canvas width="70" height="70" id="canvas-preview"></canvas>
+    <div id="preview-textfield" style="font-size: 15px;">0%</div>
+</div>
+
+<div>
+    <span id="status">Connexion...</span>
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+<script>
         var opts = {
             lines: 12, // The number of lines to draw
             angle: 0.22, // The length of each line
@@ -74,19 +90,5 @@
         gauge.setTextField(document.getElementById("preview-textfield"));
 
     </script>
-</head>
-<body>
-<div id="content"></div>
-
-<div class="gauge">
-    <canvas width="70" height="70" id="canvas-preview"></canvas>
-    <div id="preview-textfield" style="font-size: 15px;">0%</div>
-</div>
-
-<div>
-    <span id="status">Connexion...</span>
-</div>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
