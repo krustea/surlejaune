@@ -35,7 +35,7 @@ def message_loop():
             message2 = ("la temperature est de : " + str(Celsius) + "declenchement de la climatisation")
             socketio.emit('alert', message2, Broadcast=True)
 
-        else
+        else:
             GPIO.output(18, GPIO.LOW)
             GPIO.output(24, GPIO.LOW)
             message3 = ("la temperature est de : " + str(Celsius) + ". Il fait bon")
