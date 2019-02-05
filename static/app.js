@@ -13,4 +13,8 @@ $(function () {
     	$('#status').text('Connecté');
         $('#content').append(data + "<br />");
 	});
+
+	socket.on('gauge',function (data) {
+		gauge.set(parseFloat(data));
+	})
 });
