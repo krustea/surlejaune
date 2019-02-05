@@ -30,5 +30,5 @@ class Led:
             time.sleep(1)
             i=i+1
 
-ledtest=Led()
+ledtest=Led('on')
 ledtest.blink()
