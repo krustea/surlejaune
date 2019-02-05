@@ -28,7 +28,7 @@ def message_loop():
         Celsius = degcel.degreeCelsius()
         Fahrenheit = degcel.fahrenheit()
         socketio.emit('gauge', Celsius, Broadcast=True)
-        socketio.emit('gaugef', Fahrenheit, Broadcast=True)
+        socketio.emit('g', Fahrenheit, Broadcast=True)
 
         if Celsius < 15:
             GPIO.output(24, GPIO.HIGH)
