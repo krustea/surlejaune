@@ -88,26 +88,20 @@
     var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
     gauge.maxValue = 50; // set max gauge value
     gauge.animationSpeed = 50; // set animation speed (32 is default value)
-    gauge.set(
-        {
-    {
-        Celsius
-    }
-    }
-    )
+    gauge.set()
     ; // set actual value
     gauge.setTextField(document.getElementById("preview-textfield"));
 
 </script>
+
 <script>
-    var g = new JustGage({
-        id: "gaugef",
-        value: {{ Fahrenheit }},
-        min: 0,
-        max: 100,
-        title: "Visitors"
-    });
-    g.set({{ Fahrenheit}});
+  var g = new JustGage({
+    id: "gaugef",
+    value: 67,
+    min: 0,
+    max: 100,
+    title: "Visitors"
+  });
 </script>
 <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
