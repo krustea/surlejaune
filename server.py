@@ -20,6 +20,7 @@ GPIO.setup(22, GPIO.OUT)
 
 @app.route("/")
 def index():
+    Celsius = degcel.degreeCelsius()
     return render_template('index.html', Celsius = Celsius)
 
 
