@@ -29,3 +29,6 @@ class Led:
             GPIO.output(15, GPIO.LOW)
             time.sleep(1)
             i=i+1
+
+ledtest=Led()
+ledtest.blink()
