@@ -42,7 +42,7 @@ def message_loop():
             socketio.emit('alert', message3, Broadcast=True)
 
         # On attends 10ms
-        time.sleep(0.01)
+        time.sleep(30)
 
 
 
