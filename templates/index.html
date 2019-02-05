@@ -56,39 +56,57 @@
     <canvas width="70" height="70" id="canvas-preview"></canvas>
     <div id="preview-textfield" style="font-size: 15px;">0%</div>
 </div>
+<div id="gauge" class="200x160px"></div>
+
 
 <div>
     <span id="status">Connexion...</span>
 </div>
+
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.2.9/justgage.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
 <script>
-        var opts = {
-            lines: 12, // The number of lines to draw
-            angle: 0.22, // The length of each line
-            lineWidth: 0.1, // The line thickness
-            pointer: {
-                length: 0.9, // The radius of the inner circle
-                strokeWidth: 0.035, // The rotation offset
-                color: '#000000' // Fill color
-            },
-            limitMax: 'false', // If true, the pointer will not go past the end of the gauge
-            colorStart: '#2DA3DC', // Colors
-            colorStop: '#C0C0DB', // just experiment with them
-            strokeColor: '#EEEEEE', // to see which ones work best for you
-            generateGradient: true
-        };
-        var target = document.getElementById('canvas-preview'); // your canvas element
-        var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
-        gauge.maxValue = 50; // set max gauge value
-        gauge.animationSpeed = 50; // set animation speed (32 is default value)
-        gauge.set(
-            {{Celsius}}
-            )
-        ; // set actual value
-        gauge.setTextField(document.getElementById("preview-textfield"));
+    var opts = {
+        lines: 12, // The number of lines to draw
+        angle: 0.22, // The length of each line
+        lineWidth: 0.1, // The line thickness
+        pointer: {
+            length: 0.9, // The radius of the inner circle
+            strokeWidth: 0.035, // The rotation offset
+            color: '#000000' // Fill color
+        },
+        limitMax: 'false', // If true, the pointer will not go past the end of the gauge
+        colorStart: '#2DA3DC', // Colors
+        colorStop: '#C0C0DB', // just experiment with them
+        strokeColor: '#EEEEEE', // to see which ones work best for you
+        generateGradient: true
+    };
+    var target = document.getElementById('canvas-preview'); // your canvas element
+    var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
+    gauge.maxValue = 50; // set max gauge value
+    gauge.animationSpeed = 50; // set animation speed (32 is default value)
+    gauge.set(
+        {
+    {
+        Celsius
+    }
+    }
+    )
+    ; // set actual value
+    gauge.setTextField(document.getElementById("preview-textfield"));
 
-    </script>
+</script>
+<script>
+    var g = new JustGage({
+        id: "gauge",
+        value: {{ Fahrenheit }},
+        min: 0,
+        max: 100,
+        title: "Visitors"
+    });
+</script>
 <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
 </body>

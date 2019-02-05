@@ -20,14 +20,14 @@ GPIO.setup(22, GPIO.OUT)
 
 @app.route("/")
 def index():
-    Celsius = degcel.degreeCelsius()
-    return render_template('index.html', Celsius = Celsius)
+    return render_template('index.html')
 
 
 def message_loop():
     while True:
         Celsius = degcel.degreeCelsius()
-        socketio.emit('gauge', Celsius, Broadcast=True)
+        Fahrenheit = degcel.fahrenheit()
+        socketio.emit('gauge', Celsius, Fahrenheit, Broadcast=True)
 
         if Celsius < 15:
             GPIO.output(24, GPIO.HIGH)
