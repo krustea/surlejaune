@@ -19,7 +19,7 @@ $(function () {
 	});
 
 		socket.on('g',function (data) {
-		g.value.set(parseFloat(data));
+		g.refresh(parseFloat(data));
 	})
 
 });
