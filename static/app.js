@@ -18,4 +18,8 @@ $(function () {
 		gauge.set(parseFloat(data));
 	});
 
+		socket.on('gaugef',function (data) {
+		g.value(parseFloat(data));
+	})
+
 });
